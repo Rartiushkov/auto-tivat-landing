@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auto Servis Tivat – Uskoro Otvaranje</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #1551a1;
+      --bg: #f8fafc;
+      --card: #fff;
+      --shadow: 0 4px 32px 0 rgba(21,81,161,0.08);
+      --radius: 2rem;
+      --text: #222b45;
+      --secondary: #667799;
+      --gradient: linear-gradient(90deg, #1551a1 0%, #48b1f3 100%);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 430px;
+      background: url('images/hero.png') center center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom-left-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      animation: fadeInDown 1.1s;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(21,81,161,0.25);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      width: 100%;
+      max-width: 750px;
+      padding: 58px 24px 38px 24px;
+      animation: fadeInDown 1.4s;
+    }
+    .hero h1 {
+      font-size: 2.9rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      text-shadow: 0 4px 32px rgba(30,30,60,0.15);
+    }
+    .hero h2 {
+      font-size: 1.45rem;
+      font-weight: 400;
+      margin-top: 0;
+      margin-bottom: 0;
+      text-shadow: 0 2px 16px rgba(30,30,60,0.12);
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .section {
+      max-width: 700px;
+      margin: 52px auto 0 auto;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 46px 38px 28px 38px;
+      text-align: center;
+      animation: fadeInUp 1.1s;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .section p {
+      font-size: 1.21rem;
+      color: var(--secondary);
+      margin: 0 0 1.7rem 0;
+      line-height: 1.7;
+    }
+    .services-list {
+      text-align: left;
+      margin: 0 auto 2.3rem auto;
+      display: inline-block;
+      font-size: 1.15rem;
+      color: var(--text);
+      line-height: 1.6;
+      padding-left: 16px;
+    }
+    .services-list li {
+      margin-bottom: 10px;
+      padding-left: 4px;
+    }
+    .gallery {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin: 42px 0 18px 0;
+      flex-wrap: wrap;
+      animation: fadeInUp 1.6s;
+    }
+    .gallery img {
+      width: 220px;
+      height: 145px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px 0 rgba(21,81,161,0.14);
+      transition: transform 0.18s, box-shadow 0.18s;
+      border: 3px solid #fff;
+      background: #eee;
+    }
+    .gallery img:hover {
+      transform: scale(1.045) translateY(-3px);
+      box-shadow: 0 8px 32px 0 rgba(21,81,161,0.16);
+    }
+    .contact-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 18px 48px;
+      background: var(--gradient);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.08rem;
+      border: none;
+      border-radius: 40px;
+      box-shadow: 0 2px 10px 0 rgba(21,81,161,0.10);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      letter-spacing: 0.7px;
+    }
+    .contact-btn:hover {
+      transform: translateY(-4px) scale(1.045);
+      box-shadow: 0 8px 32px 0 rgba(21,81,161,0.13);
+    }
+    .contact-section {
+      max-width: 580px;
+      margin: 55px auto 40px auto;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 40px 28px;
+      text-align: center;
+    }
+    .contact-section h3 {
+      margin-bottom: 20px;
+      color: var(--accent);
+      font-size: 1.45rem;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 13px 15px;
+      border-radius: 14px;
+      border: 1.2px solid #d5e3fa;
+      font-family: inherit;
+      font-size: 1rem;
+      resize: vertical;
+      transition: border .18s;
+      outline: none;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      border: 1.8px solid var(--accent);
+    }
+    .contact-form button {
+      padding: 14px;
+      background: var(--gradient);
+      color: #fff;
+      font-size: 1.08rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background .18s, transform .18s;
+    }
+    .contact-form button:hover {
+      background: linear-gradient(90deg, #2162be 0%, #33a6e4 100%);
+      transform: scale(1.03);
+    }
+    .thanks-message {
+      color: var(--accent);
+      font-size: 1.17rem;
+      margin-top: 18px;
+      font-weight: 700;
+    }
+    footer {
+      text-align: center;
+      color: var(--secondary);
+      margin: 80px 0 24px 0;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      opacity: 0.85;
+    }
+    @media (max-width: 900px) {
+      .gallery img { width: 44vw; height: 90px; min-width: 120px;}
+      .section {padding: 26px 4vw;}
+      .contact-section {padding: 18px 2vw;}
+    }
+    @media (max-width: 600px) {
+      .gallery { gap: 8px; }
+      .section { padding: 14px 2vw; }
+      .hero-content { padding: 20px 2vw; }
+      .hero h1 { font-size: 1.15rem;}
+      .hero { min-height: 210px; }
+      .contact-section {padding: 10px 2vw;}
+    }
+  </style>
+  <script>
+    function handleFormSubmit(e) {
+      setTimeout(function() {
+        document.getElementById('thanks').style.display = 'block';
+        document.getElementById('contact-form').reset();
+      }, 300);
+    }
+  </script>
+</head>
+<body>
+  <div class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Auto Servis Tivat – Uskoro Otvaranje!</h1>
+      <h2>Novi auto servis & prodaja vozila na obali Boke</h2>
+    </div>
+  </div>
+
+  <div class="section" id="about">
+    <h2 style="color: #1551a1; margin-bottom: 22px;">O nama</h2>
+    <p>
+      Uskoro pokrećemo moderan auto servis i salon za prodaju i preprodaju automobila u Tivtu.<br>
+      Naša misija je da ponudimo pouzdane usluge održavanja i bogat izbor automobila za građane i goste Crne Gore.<br><br>
+      <b>Trenutno smo u fazi istraživanja DMS rešenja i partnerstava za digitalizaciju i unapređenje procesa.</b>
+    </p>
+  </div>
+
+  <div class="section" id="services">
+    <h2 style="color: #1551a1; margin-bottom: 22px;">Planirane usluge servisa i salona</h2>
+    <ul class="services-list">
+      <li>Redovan i hitan servis automobila</li>
+      <li>Dijagnostika i elektronika</li>
+      <li>Zamjena ulja, filtera i tečnosti</li>
+      <li>Popravka kočionih sistema i ogibljenja</li>
+      <li>Vulkanizacija i zamena pneumatika</li>
+      <li>Pranje i detailing vozila</li>
+      <li>Prodaja i preprodaja novih i polovnih automobila</li>
+      <li>Procena i otkup vozila</li>
+      <li>Pomoć na putu i šlep služba</li>
+      <li>Ugradnja dodatne opreme i elektronike</li>
+    </ul>
+    <p style="margin-top:22px;">
+      Otvaranje planiramo ove godine, a do tada aktivno tražimo najbolje partnere i sisteme za podršku našem poslovanju!
+    </p>
+  </div>
+
+  <div class="section" id="gallery">
+    <h2 style="color: #1551a1; margin-bottom: 22px;">Galerija</h2>
+    <div class="gallery">
+      <!-- 1. Машина на фоне моря и Тивата -->
+      <img src="images/hero.png" alt="Auto na moru Tivat">
+      <!-- 2. Современный автосервис -->
+      <img src="images/service.png" alt="Auto servis radionica">
+      <!-- 3. Продажа авто, салон -->
+      <img src="images/sale.png" alt="Salon prodaja automobila">
+      <!-- 4. Обслуживание, замена масла -->
+      <img src="images/maintenance.png" alt="Održavanje automobila">
+      <!-- 5. Мойка/детейлинг -->
+      <img src="images/carwash.png" alt="Pranje i detailing vozila">
+    </div>
+  </div>
+
+  <div class="contact-section" id="contact">
+    <h3>Kontaktirajte nas</h3>
+    <p>
+      Imate pitanje, želite partnerstvo ili ste DMS dobavljač?<br>
+      Pišite nam – odgovaramo u najkraćem roku!
+    </p>
+    <p style="margin-top:16px; margin-bottom:10px; font-size:1.15em;">
+      <b>Telefon:</b> +382 68 530 275 <span style="color:#bb3a3a;">(privremeno ne radi)</span>
+    </p>
+    <form id="contact-form" class="contact-form"
+          action="https://formsubmit.co/rartiushkov@gmail.com"
+          method="POST"
+          target="_blank"
+          onsubmit="handleFormSubmit()">
+      <input type="text" name="Ime" placeholder="Vaše ime" required>
+      <input type="email" name="Email" placeholder="Vaš email" required>
+      <textarea name="Poruka" rows="4" placeholder="Vaša poruka" required></textarea>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://google.com">
+      <button type="submit">Pošalji poruku</button>
+    </form>
+    <div id="thanks" class="thanks-message" style="display:none;">
+      Hvala na poruci! Odgovorićemo uskoro.
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Auto Servis Tivat &middot; Sva prava zadržana
+  </footer>
+</body>
+</html>
